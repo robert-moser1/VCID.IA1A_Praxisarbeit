@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+    My Favorites
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">My Favorite Games</h1>
+
+        <!-- Favoriten-Liste -->
+        {% if favorite_games %}
+            <div class="list-group">
+                {% for game in favorite_games %}
+                    <a href="{{ url_for('game_detail', game_id=game.id) }}" class="list-group-item list-group-item-action bg-dark text-white">
+                        <h5 class="mb-1">{{ game.title }}</h5>
+                        <p class="mb-1">{{ game.description[:100] }}...</p> <!-- Optional: Beschreibung abkürzen -->
+                        <small>Rating: {{ game.rating if game.rating is not none else 'No rating yet' }}</small>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center">You have no favorites yet.</p>
+        {% endif %}
+    </div>
+{% endblock %}

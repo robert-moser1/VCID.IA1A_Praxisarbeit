@@ -1,0 +1,188 @@
+/* Apply a background image to the body */
+body {
+    background-image: url('/static/images/ps5-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #ffffff;
+    font-family: Arial, sans-serif; /* Optional: Schrifttyp für bessere Lesbarkeit */
+}
+
+/* Container for general layout */
+.container {
+    background: rgba(0, 0, 0, 0.6); /* Slightly darker for better contrast */
+    padding: 20px; /* Add some padding */
+    border-radius: 8px; /* Rounded corners */
+    margin: 0 auto; /* Center the container */
+    max-width: 1200px; /* Optional: limit the maximum width */
+}
+
+/* Flexbox for row and column layout */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px; /* Aligns column spacing correctly */
+}
+
+.col-md-4 {
+    padding: 10px; /* Space around each column */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Style for the game box */
+.game-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space evenly */
+    background: rgba(0, 0, 0, 0.75); /* Darker background for better readability */
+    padding: 20px; /* Padding inside the box */
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid #444; /* Darker border to match the theme */
+    height: 100%; /* Make sure the height is full for alignment */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for better visual separation */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Stretch to fill the available space */
+}
+
+/* Ensure the image takes up the correct space */
+.game-box img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for the image */
+}
+
+/* Style for the game title */
+.game-title {
+    font-size: 24px; /* Larger font size for title */
+    color: #e0e0e0; /* Light gray text color for better contrast */
+    margin-bottom: 10px; /* Space below the title */
+    font-weight: bold; /* Optional: make title bold */
+}
+
+/* Ensure game description takes up remaining space */
+.game-description {
+    margin-bottom: 10px; /* Space below the description */
+    flex: 1; /* Take up remaining space to ensure proper alignment */
+}
+
+/* Style for the game rating */
+.game-rating {
+    font-size: 18px; /* Font size for rating */
+    color: #ffd700; /* Gold color for rating */
+    margin-bottom: 10px; /* Space below the rating */
+}
+
+/* Style for the game details link */
+.game-details {
+    margin-top: auto; /* Push the details button to the bottom */
+}
+
+.game-details a {
+    color: #1e90ff; /* Bright blue for the link */
+    text-decoration: none; /* Remove underline from link */
+    font-weight: bold; /* Make link bold */
+}
+
+.game-details a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Rating stars container */
+.rating-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+/* Rating stars */
+.rating {
+    display: flex;
+    font-size: 2rem;
+    align-items: center;
+    margin-bottom: 5px; /* Space between stars and value */
+}
+
+/* Hide actual radio buttons */
+.rating input {
+    display: none;
+}
+
+.rating label {
+    color: #ccc; /* Gray for unselected stars */
+    cursor: pointer;
+    position: relative; /* For positioning the rating-value */
+}
+
+/* Gold for stars before and including the checked star */
+.rating input:checked ~ label,
+.rating input:checked ~ label ~ label {
+    color: #ffd700; /* Gold for selected stars */
+}
+
+/* Gold for stars on hover and all stars before it */
+.rating label:hover,
+.rating label:hover ~ label {
+    color: #ffd700; /* Gold for stars on hover */
+}
+
+/* Show the rating value on hover or if a star is checked */
+.rating-value {
+    opacity: 0;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-top: 5px; /* Space between value and stars */
+    position: absolute;
+    left: 50%; /* Center the value */
+    top: 100%; /* Below the star */
+    transform: translateX(-50%);
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+}
+
+/* Show the rating value on hover or if a star is checked */
+.rating label:hover .rating-value,
+.rating input:checked ~ label .rating-value {
+    opacity: 1;
+}
+
+/* Style for the navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space out items evenly */
+    padding: 10px 20px; /* Add padding for spacing */
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly dark background */
+    border-bottom: 2px solid #333; /* Bottom border for separation */
+}
+
+/* Style for navigation links */
+.nav-link {
+    text-decoration: none; /* Remove underline */
+    color: #ffffff; /* White text color */
+    padding: 10px 15px; /* Add padding around text */
+    font-size: 18px; /* Font size */
+    font-weight: bold; /* Make text bold */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for navigation links */
+.nav-link:hover {
+    background-color: #555; /* Slightly darker background on hover */
+    color: #ffd700; /* Gold text color on hover */
+}
+
+/* Style specifically for the logout button */
+#logout-button {
+    margin-left: auto; /* Push logout button to the right end */
+    background-color: #ff4b4b; /* Red background for logout */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for better click area */
+    font-weight: bold; /* Make text bold */
+}
+
+/* Hover effect specifically for the logout button */
+#logout-button:hover {
+    background-color: #ff1c1c; /* Darker red on hover */
+}
